@@ -202,7 +202,11 @@ static void render_luna(int LUNA_X, int LUNA_Y) {
         oled_on();
         anim_sleep = timer_read32();
     } else if(timer_elapsed32(anim_sleep) > OLED_TIMEOUT) {
+        /* clear */
+        oled_set_cursor(0,0);
+        oled_write("                                                                                                    ", false);
         oled_off();
+        oled_set_cursor(LUNA_X,LUNA_Y);
     }
 
 }
