@@ -209,8 +209,8 @@ static void render_luna(int LUNA_X, int LUNA_Y) {
 
 /* KEYBOARD PET END */
 
-static void print_logo_narrow(void) {
-    render_logo();
+void oled_render_layer_state(void) {
+     render_logo();
 
     /* wpm counter */
     uint8_t n = get_current_wpm();
@@ -270,6 +270,6 @@ void oled_task_user(void) {
     if (is_keyboard_master()) {
         print_status_narrow();
     } else {
-        print_logo_narrow();
+        oled_render_layer_state();
     }
 }
