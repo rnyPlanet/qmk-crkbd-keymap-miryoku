@@ -4,7 +4,8 @@ typedef enum {
   _NUMS,
   _F,
   _RU,
-  _GAME
+  _GAME,
+  _MOUSE
 }CRKBD_LAYERS;
 
 extern enum CRKBD_LAYERS crkbd_layers;
