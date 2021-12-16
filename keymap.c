@@ -2,12 +2,11 @@
 #include <stdio.h>
 #include <keymap_russian.h>
 
-#ifdef OLED_DRIVER_ENABLE
-#    include "oled.c"
+#ifdef OLED_ENABLE
+    #include "oled.c"
 #endif
 
 #define XXXXXXX KC_NO
-#define _______ KC_TRNS
 
 #define HOME_A LGUI_T(KC_A)
 #define HOME_S LALT_T(KC_S)
@@ -41,9 +40,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
         KC_LCTL,    KC_Z,  RALT_X,    KC_C,    KC_V,    KC_B,                         KC_N,    KC_M, KC_COMM,RALT_DOT, KC_SLSH,TG(_GAME),
     //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                LT(_MOUSE, KC_ESC),
-                                    LT(_ARROWS, KC_SPC),
-                                        LT(_NUMS, KC_TAB),
+                                LT(_MOUSE, KC_TAB),
+                                    LT(_ARROWS, KC_ESC),
+                                        LT(_NUMS, KC_SPC),
                                                                         LT(_F, KC_ENT) ,
                                                                             LT(_RU, KC_BSPC),
                                                                                         KC_DEL

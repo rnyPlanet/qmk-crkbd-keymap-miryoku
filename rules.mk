@@ -1,5 +1,8 @@
-OLED_DRIVER_ENABLE  = yes
-VIA_ENABLE          = no         # Enable VIA
+OLED_ENABLE			= yes
+OLED_DRIVER 		= SSD1306
+EXTRAKEY_ENABLE 	= no
+VIA_ENABLE          = no
 TAP_DANCE_ENABLE 	= yes
-WPM_ENABLE 			= yes
 SPLIT_KEYBOARD 		= yes
+
+WPM_ENABLE 			= yes
