@@ -10,66 +10,66 @@ extern uint8_t is_master;
 /* KEYBOARD PET START */
 
 /* logic */
-static void render_luna(int LUNA_X, int LUNA_Y) {
+// static void render_luna(int LUNA_X, int LUNA_Y) {
 
-    /* animation */
-    void animate_luna(void) {
-        /* jump */
-        if (isJumping || !showedJump) {
-            /* clear */
-            oled_set_cursor(LUNA_X, LUNA_Y + 2);
-            oled_write("     ", false);
+//     /* animation */
+//     void animate_luna(void) {
+//         /* jump */
+//         if (isJumping || !showedJump) {
+//             /* clear */
+//             oled_set_cursor(LUNA_X, LUNA_Y + 2);
+//             oled_write("     ", false);
 
-            oled_set_cursor(LUNA_X, LUNA_Y - 1);
+//             oled_set_cursor(LUNA_X, LUNA_Y - 1);
 
-            showedJump = true;
-        } else {
-            /* clear */
-            oled_set_cursor(LUNA_X, LUNA_Y - 1);
-            oled_write("     ", false);
+//             showedJump = true;
+//         } else {
+//             /* clear */
+//             oled_set_cursor(LUNA_X, LUNA_Y - 1);
+//             oled_write("     ", false);
 
-            oled_set_cursor(LUNA_X, LUNA_Y);
-        }
+//             oled_set_cursor(LUNA_X, LUNA_Y);
+//         }
 
-        /* switch frame */
-        current_frame = (current_frame + 1) % 2;
+//         /* switch frame */
+//         current_frame = (current_frame + 1) % 2;
 
-        /* current status */
-        if (led_usb_state.caps_lock) {
-            oled_write_raw_P(bark[abs(1 - current_frame)], ANIM_SIZE);
+//         /* current status */
+//         if (led_usb_state.caps_lock) {
+//             oled_write_raw_P(bark[abs(1 - current_frame)], ANIM_SIZE);
 
-        } else if (isSneaking) {
-            oled_write_raw_P(sneak[abs(1 - current_frame)], ANIM_SIZE);
+//         } else if (isSneaking) {
+//             oled_write_raw_P(sneak[abs(1 - current_frame)], ANIM_SIZE);
 
-        } else if (current_wpm <= MIN_WALK_SPEED) {
-            oled_write_raw_P(sit[abs(1 - current_frame)], ANIM_SIZE);
+//         } else if (current_wpm <= MIN_WALK_SPEED) {
+//             oled_write_raw_P(sit[abs(1 - current_frame)], ANIM_SIZE);
 
-        } else if (current_wpm <= MIN_RUN_SPEED) {
-            oled_write_raw_P(walk[abs(1 - current_frame)], ANIM_SIZE);
+//         } else if (current_wpm <= MIN_RUN_SPEED) {
+//             oled_write_raw_P(walk[abs(1 - current_frame)], ANIM_SIZE);
 
-        } else {
-            oled_write_raw_P(run[abs(1 - current_frame)], ANIM_SIZE);
-        }
-    }
+//         } else {
+//             oled_write_raw_P(run[abs(1 - current_frame)], ANIM_SIZE);
+//         }
+//     }
 
-    /* animation timer */
-    if (timer_elapsed32(anim_timer) > ANIM_FRAME_DURATION) {
-        anim_timer = timer_read32();
-        animate_luna();
-    }
+//     /* animation timer */
+//     if (timer_elapsed32(anim_timer) > ANIM_FRAME_DURATION) {
+//         anim_timer = timer_read32();
+//         animate_luna();
+//     }
 
-    /* this fixes the screen on and off bug */
-    if (current_wpm > 0) {
-        oled_on();
-        anim_sleep = timer_read32();
-    } else if (timer_elapsed32(anim_sleep) > OLED_TIMEOUT) {
-        /* clear */
-        oled_set_cursor(0, 0);
-        oled_write("                                                                                                    ", false);
-        oled_off();
-        oled_set_cursor(LUNA_X, LUNA_Y);
-    }
-}
+//     /* this fixes the screen on and off bug */
+//     if (current_wpm > 0) {
+//         oled_on();
+//         anim_sleep = timer_read32();
+//     } else if (timer_elapsed32(anim_sleep) > OLED_TIMEOUT) {
+//         /* clear */
+//         oled_set_cursor(0, 0);
+//         oled_write("                                                                                                    ", false);
+//         oled_off();
+//         oled_set_cursor(LUNA_X, LUNA_Y);
+//     }
+// }
 
 /* KEYBOARD PET END */
 
@@ -285,7 +285,7 @@ static void print_status_narrow(void) {
 
     /* KEYBOARD PET RENDER START */
 
-    render_luna(0, 13);
+    // render_luna(0, 13);
 
     /* KEYBOARD PET RENDER END */
 }

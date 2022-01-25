@@ -4,8 +4,6 @@
 
 #define USE_SERIAL_PD2
 
-#define TAPPING_FORCE_HOLD
-
 // Configure the global tapping term (default: 200ms)
 #define TAPPING_TERM 200
 
